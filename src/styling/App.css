@@ -17,9 +17,10 @@
   text-align: center;
   font-size: 50px;
   font-family: 'Noto Serif JP', serif;
-  background: -webkit-linear-gradient(rgba(156, 72, 156, 0.575), rgba(13, 9, 44, 0.712) );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /* background: -webkit-linear-gradient(rgba(156, 72, 156, 0.575), rgba(13, 9, 44, 0.712) );
+  -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+  color: #ee1144;
 }
 
 .container {
@@ -35,14 +36,16 @@
 
 .container h1{
   text-align: center;
-  background: -webkit-linear-gradient(rgba(223, 19, 223, 0.575), rgba(61, 40, 248, 0.712) );
+  /* background: -webkit-linear-gradient(rgba(223, 19, 223, 0.575), rgba(61, 40, 248, 0.712) );
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
+  color: #ee1144;
 }
 
 .container span, p{
   font-size: 12px;
-  color: rgb(77, 76, 76);
+  /* color: rgb(77, 76, 76); */
+  color: #ee1144;
 }
 
 .container p{
@@ -66,13 +69,86 @@
 }
 
 .container button {
-  background: linear-gradient(rgba(223, 19, 223, 0.575), rgba(61, 40, 248, 0.712) );
+  /* background: linear-gradient(rgba(223, 19, 223, 0.575), rgba(61, 40, 248, 0.712) ); */
+  background-color: #ee1144;
   color: white;
   border: none;
   border-radius: 25px;
   padding: 10px;
   width: 270px ;
   cursor: pointer;
+  transition: .3s;
+}
+
+.container button:hover {
+  background-color: #b11b3e;
+}
+
+.home .empty-space {
+  background-color: #131619;
+}
+.home {
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  height: 100vh;
+}
+
+.home .main {
+  display: grid;
+  grid-template-columns: 1fr 50rem 1fr;
+  color: white;
+  background-color: #131619;
+
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 50rem 1fr;
+  justify-content: flex-start;
+  background-color: #131619;
+
+}
+
+.header .logo {
+  font-size: 30px;
+  font-family: 'Righteous', cursive;
+}
+
+.header .logo-div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.header .svg:hover {
+  fill: #ee1144;
+  cursor: pointer;
+}
+
+.header .logo-div .header-icons {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+}
+
+.main .main-content {
+  display: grid;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.question-card {
+  display: grid;
+  justify-items: flex-start;
+  text-align: left;
+  padding: .5rem 1rem;
+  width: 30rem;
+  display: grid;
+  border: 1px solid #ee1144;
+  gap: .5rem;
 }
 
 .App {
