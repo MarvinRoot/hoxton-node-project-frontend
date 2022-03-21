@@ -1,0 +1,80 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.sign-in, .sign-up {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.logo{
+  align-content: flex-end;
+  margin-bottom: 0.7rem;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Noto Serif JP', serif;
+  background: -webkit-linear-gradient(rgba(156, 72, 156, 0.575), rgba(13, 9, 44, 0.712) );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container {
+  border-radius: 2%;
+  width: 330px;
+  height: auto;
+  display: grid;
+  grid-gap: 1rem;
+  box-shadow: -10px 10px 80px -20px rgb(129, 255, 255), 10px -10px 80px -20px rgb(206, 98, 206);
+  padding: 1.5rem;
+  align-content: start;
+}
+
+.container h1{
+  text-align: center;
+  background: -webkit-linear-gradient(rgba(223, 19, 223, 0.575), rgba(61, 40, 248, 0.712) );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container span, p{
+  font-size: 12px;
+  color: rgb(77, 76, 76);
+}
+
+.container p{
+  text-align: center;
+}
+
+.container p:hover{
+  color: rgba(223, 19, 223, 0.575);
+  cursor: pointer;
+}
+
+.container input{
+  border: none;
+  border-bottom: solid rgb(202, 200, 200) 1px;
+  padding: 15px 0px;
+  width: 270px ;
+}
+
+.container input:focus {
+  outline: none;
+}
+
+.container button {
+  background: linear-gradient(rgba(223, 19, 223, 0.575), rgba(61, 40, 248, 0.712) );
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  width: 270px ;
+  cursor: pointer;
+}
+
+.App {
+  text-align: center;
+}
