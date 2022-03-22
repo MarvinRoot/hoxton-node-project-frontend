@@ -1,4 +1,5 @@
 import { Header } from "../components/Header"
+import { Question_Card } from "../components/Question_Card"
 
 export function Home() {
     return (
@@ -8,45 +9,19 @@ export function Home() {
                 <div className="empty-space"></div>
                 <div className="main-content">
                     <h1>Main content</h1>
-                    <div className="question-card">
-                        <p>@username</p>
-                        <h4>Some question</h4>
-                        <p>2022/02/02</p>
-                    </div>
-                    <div className="question-card">
-                        <p>@username</p>
-                        <h4>Some question</h4>
-                        <p>2022/02/02</p>
-                    </div>
-                    <div className="question-card">
-                        <p>@username</p>
-                        <h4>Some question</h4>
-                        <p>2022/02/02</p>
-                    </div>
-                    <div className="question-card">
-                        <p>@username</p>
-                        <h4>Some question</h4>
-                        <p>2022/02/02</p>
-                    </div>
-                    <div className="question-card">
-                        <p>@username</p>
-                        <h4>Some question</h4>
-                        <p>2022/02/02</p>
-                    </div>
-                    <div className="question-card">
-                        <p>@username</p>
-                        <h4>Some question</h4>
-                        <p>2022/02/02</p>
-                    </div>
-                    <div className="question-card">
-                        <p>@username</p>
-                        <h4>Some question</h4>
-                        <p>2022/02/02</p>
-                    </div>
+                    {Question_Card('marvin', 'dadssdsdsd', '2022/02/02')}
+                    {Question_Card('rinor', 'dadssdsdsd', '2022/02/02')}
+                    {Question_Card('marvinor', 'dadssdsdsd', '2022/02/02')}
+                    {Question_Card('rinomarv', 'dadssdsdsd', '2022/02/02')}
+                    {Question_Card('vin', 'dadssdsdsd', '2022/02/02')}
+                    {Question_Card('rin', 'dadssdsdsd', '2022/02/02')}
+                    {Question_Card('luffy', 'dadssdsdsd', '2022/02/02')}
+                    {Question_Card('sasuke', 'dadssdsdsd', '2022/02/02')}
+                    {Question_Card('vegeta', 'dadssdsdsd', '2022/02/02')}
+                    {Question_Card('marvin', 'dadssdsdsd', '2022/02/02')}
                 </div>
                 <div className="empty-space"></div>
             </section>
         </section>
-
     )
 }
