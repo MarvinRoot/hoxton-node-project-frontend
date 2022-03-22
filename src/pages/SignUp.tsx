@@ -1,37 +1,72 @@
-import { useNavigate } from "react-router-dom"
+import '../styling/SignInAndSignUp.css';
+import { useNavigate } from 'react-router-dom';
 
-export function SignUp() {
-    const navigate = useNavigate()
+type Props = {
+  setCurrentUser: React.Dispatch<React.SetStateAction<User | null>>;
+  currentUser: User | null;
+};
 
-    return (
-        <div className="sign-up">
-            <h1 className="logo">questions.fm</h1>
-            <form>
-                <div className="container">
-                    <h1>SIGN UP!</h1>
+function SignUp({ setCurrentUser, currentUser }: Props) {
+  const navigate = useNavigate();
+  if (currentUser) {
+    navigate('/profile/');
+  }
+  return (
+    <div className='sign-up'>
+      <h1 className='logo'>questions.fm</h1>
+      <form>
+        <div className='container'>
+          <h1>SIGN UP!</h1>
 
-                    <label>
-                        <span>Username</span>
-                        <input required name="username" type="text" placeholder="Create a username" />
-                    </label>
+          <label>
+            <span>Username</span>
+            <input
+              required
+              name='username'
+              type='text'
+              placeholder='Create a username'
+            />
+          </label>
 
-                    <label>
-                        <span>Email</span>
-                        <input required name="email" type="email" placeholder="Enter your email adress" />
-                    </label>
+          <label>
+            <span>Email</span>
+            <input
+              required
+              name='email'
+              type='email'
+              placeholder='Enter your email adress'
+            />
+          </label>
 
-                    <label>
-                        <span>Password</span>
-                        <input required name="password" type="password" placeholder="Create a password" />
-                    </label>
+          <label>
+            <span>Password</span>
+            <input
+              required
+              name='password'
+              type='password'
+              placeholder='Create a password'
+            />
+          </label>
+          <label>
+            <span>Image</span>
+            <input
+              required
+              name='image'
+              type='url'
+              placeholder='Paste your image url'
+            />
+          </label>
 
-                    <button type="submit" value="Submit">
-                        Sign Up
-                    </button>
+          <button type='submit' value='Submit'>
+            Sign Up
+          </button>
 
-                    <p onClick={() => navigate('/sign-in')}>Already have an account? Sign in</p>
-                </div>
-            </form>
+          <p onClick={() => navigate('/sign-in')}>
+            Already have an account? Sign in
+          </p>
         </div>
-    )
+      </form>
+    </div>
+  );
 }
+export default SignUp;

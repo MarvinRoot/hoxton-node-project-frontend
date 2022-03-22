@@ -1,0 +1,31 @@
+.header {
+  padding: 0.8rem 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+}
+
+.header .logo {
+  font-size: 1.3rem;
+  font-family: 'Righteous', cursive;
+}
+
+.header .icons {
+  list-style-type: none;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.5rem;
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+}
+
+.header a:hover,
+.header a.active {
+  color: rgba(255, 255, 255, 0.7);
+}
+.material-icons {
+  font-size: 1.3rem;
+}

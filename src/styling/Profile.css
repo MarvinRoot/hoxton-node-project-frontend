@@ -1,0 +1,20 @@
+.main nav {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+}
+.main > nav a {
+  padding: 1rem 3rem;
+  border: none;
+  font-size: 15px;
+  background-color: #ee1144;
+  color: white;
+  text-decoration: none;
+  transition: 0.1s;
+}
+
+.main > nav a:hover,
+.main > nav a.active {
+  background-color: #b11b3e;
+  cursor: pointer;
+}

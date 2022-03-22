@@ -1,0 +1,14 @@
+.answer-card {
+  display: grid;
+  justify-items: flex-start;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  width: 30rem;
+  display: grid;
+  border: 1px solid #ee1144;
+  gap: 0.5rem;
+}
+.answer-card h4,
+.answer-card h2 {
+  color: white;
+}

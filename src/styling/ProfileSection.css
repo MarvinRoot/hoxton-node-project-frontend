@@ -1,0 +1,20 @@
+.profile {
+  display: grid;
+  grid-auto-flow: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.profile img {
+  width: 200px;
+  border-radius: 50%;
+  justify-self: end;
+}
+
+.profile h3 {
+  display: grid;
+  justify-items: flex-start;
+  align-items: center;
+  color: white;
+  justify-self: start;
+}

@@ -1,0 +1,6 @@
+.answers-list {
+  display: grid;
+  padding: 1rem;
+  justify-content: center;
+  gap: 1rem;
+}

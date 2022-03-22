@@ -1,47 +1,44 @@
-import { Header } from "../components/Header";
-import { Question_Card } from "../components/Question_Card";
+import '../styling/Profile.css';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import Header from '../components/Header';
+import ProfileSection from '../components/ProfileSection';
+import { useEffect, useState } from 'react';
 
-export function Profile() {
+type Props = {
+  setCurrentUser: React.Dispatch<React.SetStateAction<User | null>>;
+  currentUser: User | null;
+};
+
+function Profile({ setCurrentUser, currentUser }: Props) {
+  const navigate = useNavigate();
+  const [answers, setAnswers] = useState<Question[]>([]);
+  useEffect(() => {
+    if (currentUser === null) navigate('/sign-in');
+  }, []);
+
+  if (currentUser === null) {
     return (
-        <section className="profile">
-            <Header />
-            <section className="profile-wrapper">
-                <div className="empty-space"></div>
-                <div className="profile-content">
-                    <div className="profile-pic-username">
-                        <img src="https://images.unsplash.com/photo-1520635360276-79f3dbd809f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2lybCUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80" alt="profile" />
-                        <h3>@username</h3>
-                    </div>
-                    <div>
-                        <button className="profile-button">Answers</button>
-                        <button className="profile-button">Questions</button>
-                    </div>
-                    <div className="profile-cards">
-                        <div className="question-card">
-                            <p>sdgsdfsfsd</p>
-                            <h4>sdfsdfsdfs</h4>
-                            <p>sdfsdfsd</p>
-                        </div>
-                        <div className="question-card">
-                            <p>sdgsdfsfsd</p>
-                            <h4>sdfsdfsdfs</h4>
-                            <p>sdfsdfsd</p>
-                        </div>
-                        <div className="question-card">
-                            <p>sdgsdfsfsd</p>
-                            <h4>sdfsdfsdfs</h4>
-                            <p>sdfsdfsd</p>
-                        </div>
-                        <div className="question-card">
-                            <p>sdgsdfsfsd</p>
-                            <h4>sdfsdfsdfs</h4>
-                            <p>sdfsdfsd</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="empty-space"></div>
-            </section>
-
-        </section>
-    )
+      <div className='main'>
+        <h2>There's nothing for you here</h2>
+      </div>
+    );
+  } else
+    useEffect(() => {
+      fetch(`http://localhost:4000/answers/${currentUser.username}`, {})
+        .then((resp) => resp.json())
+        .then((data) => setAnswers(data));
+    }, []);
+  return (
+    <div className='main'>
+      <Header setCurrentUser={setCurrentUser} currentUser={currentUser} />
+      <ProfileSection user={currentUser} />
+      <nav>
+        <NavLink to='./'> Answers</NavLink>
+        <NavLink to='./questions'> Questions</NavLink>
+      </nav>
+      <Outlet context={answers} />
+    </div>
+  );
 }
+
+export default Profile;
