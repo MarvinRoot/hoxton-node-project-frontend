@@ -1,16 +1,18 @@
+import { Navigate, useNavigate } from "react-router-dom"
 export function Header() {
+    const navigate = useNavigate()
     return (
         <section className="header">
             <div className="empty-space"></div>
             <div className="logo-div">
                 <h1 className="logo">questions.fm</h1>
                 <div className="header-icons">
-                    <svg className="svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    <svg onClick={() => navigate('/home')} className="svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                         width="26" height="26"
                         viewBox="0 0 16 16"
                         style={{ fill: "#ffffff" }}><path d="M 8 1.320313 L 0.660156 8.132813 L 1.339844 8.867188 L 2 8.253906 L 2 14 L 7 14 L 7 9 L 9 9 L 9 14 L 14 14 L 14 8.253906 L 14.660156 8.867188 L 15.339844 8.132813 Z M 8 2.679688 L 13 7.328125 L 13 13 L 10 13 L 10 8 L 6 8 L 6 13 L 3 13 L 3 7.328125 Z"></path></svg>
 
-                    <svg className="svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                    <svg onClick={() => navigate('/profile')} className="svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                         width="27" height="27"
                         viewBox="0 0 16 16"
                         style={{ fill: "#ffffff" }}><path d="M 8 2 C 6.347656 2 5 3.347656 5 5 C 5 6.652344 6.347656 8 8 8 C 9.652344 8 11 6.652344 11 5 C 11 3.347656 9.652344 2 8 2 Z M 8 8 C 5.246094 8 3 10.246094 3 13 L 4 13 C 4 10.785156 5.785156 9 8 9 C 10.214844 9 12 10.785156 12 13 L 13 13 C 13 10.246094 10.753906 8 8 8 Z M 8 3 C 9.109375 3 10 3.890625 10 5 C 10 6.109375 9.109375 7 8 7 C 6.890625 7 6 6.109375 6 5 C 6 3.890625 6.890625 3 8 3 Z"></path></svg>
