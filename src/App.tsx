@@ -8,6 +8,7 @@ import AnswersList from './components/AnswersList';
 import QuestionsList from './components/QuestionsList';
 import { useEffect, useState } from 'react';
 import Modal from './components/Modal';
+import { Users } from './pages/Users';
 
 function App() {
   const navigate = useNavigate();
@@ -69,6 +70,9 @@ function App() {
           <Route path='' element={<AnswersList />} />
           <Route path='questions' element={<QuestionsList />} />
         </Route>
+
+        <Route path='/users' element={<Users setCurrentUser={setCurrentUser}
+              currentUser={currentUser}/>}/>
       </Routes>
       {modalMessage !== '' && (
         <Modal modalMessage={modalMessage} setModalMessage={setModalMessage} />

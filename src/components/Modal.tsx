@@ -22,7 +22,7 @@ function Modal({ modalMessage, setModalMessage }: Props) {
         >
           X
         </button>
-        <h2 style={{ color: 'red' }}>{modalMessage}</h2>
+        <h2 style={{ color: '#ee1144' }}>{modalMessage}</h2>
       </div>
     </div>
   );
