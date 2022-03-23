@@ -1,11 +1,12 @@
 import '../styling/SignInAndSignUp.css';
 import { useNavigate } from 'react-router-dom';
-import { WrongCredentialsModal } from '../components/WrongCredentialsModal'
+
 type Props = {
   setCurrentUser: React.Dispatch<React.SetStateAction<User | null>>;
   currentUser: User | null;
+  setModalMessage: React.Dispatch<React.SetStateAction<string>>;
 };
-function SignIn({ setCurrentUser, currentUser }: Props) {
+function SignIn({ setCurrentUser, currentUser, setModalMessage }: Props) {
   const navigate = useNavigate();
 
   function signIn(email: string, password: string) {
@@ -19,7 +20,7 @@ function SignIn({ setCurrentUser, currentUser }: Props) {
       .then((resp) => resp.json())
       .then((data) => {
         if (data.error) {
-            <WrongCredentialsModal />
+          setModalMessage(data.error);
         } else {
           localStorage.token = data.token;
           setCurrentUser(data.user);

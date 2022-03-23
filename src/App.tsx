@@ -7,6 +7,7 @@ import SignIn from './pages/SignIn';
 import AnswersList from './components/AnswersList';
 import QuestionsList from './components/QuestionsList';
 import { useEffect, useState } from 'react';
+import Modal from './components/Modal';
 
 function App() {
   const navigate = useNavigate();
@@ -28,6 +29,7 @@ function App() {
     }
   }
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [modalMessage, setModalMessage] = useState('user');
   useEffect(() => {
     validateUser();
   }, []);
@@ -38,7 +40,7 @@ function App() {
         <Route
           path='/sign-in'
           element={
-            <SignIn setCurrentUser={setCurrentUser} currentUser={currentUser} />
+            <SignIn setCurrentUser={setCurrentUser} currentUser={currentUser} setModalMessage={setModalMessage} />
           }
         />
         <Route
@@ -68,6 +70,9 @@ function App() {
           <Route path='questions' element={<QuestionsList />} />
         </Route>
       </Routes>
+      {modalMessage !== '' && (
+        <Modal modalMessage={modalMessage} setModalMessage={setModalMessage} />
+      )}
     </div>
   );
 }
