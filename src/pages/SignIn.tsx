@@ -1,5 +1,6 @@
 import '../styling/SignInAndSignUp.css';
 import { useNavigate } from 'react-router-dom';
+import { WrongCredentialsModal } from '../components/WrongCredentialsModal'
 type Props = {
   setCurrentUser: React.Dispatch<React.SetStateAction<User | null>>;
   currentUser: User | null;
@@ -18,7 +19,7 @@ function SignIn({ setCurrentUser, currentUser }: Props) {
       .then((resp) => resp.json())
       .then((data) => {
         if (data.error) {
-          alert(data.error);
+            <WrongCredentialsModal />
         } else {
           localStorage.token = data.token;
           setCurrentUser(data.user);
