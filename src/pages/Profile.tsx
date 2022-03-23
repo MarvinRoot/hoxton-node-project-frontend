@@ -10,6 +10,12 @@ type Props = {
 };
 
 function Profile({ setCurrentUser, currentUser }: Props) {
+  function fetchAnswers() {
+    fetch(`http://localhost:4000/answers/${currentUser.username}`, {})
+      .then((resp) => resp.json())
+      .then((data) => setAnswers(data));
+  }
+
   const navigate = useNavigate();
   const [answers, setAnswers] = useState<Question[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
@@ -34,16 +40,16 @@ function Profile({ setCurrentUser, currentUser }: Props) {
     );
   } else
     useEffect(() => {
-      fetch(`http://localhost:4000/answers/${currentUser.username}`, {})
-        .then((resp) => resp.json())
-        .then((data) => setAnswers(data));
+      fetchAnswers();
     }, []);
   return (
     <div className='main'>
       <Header setCurrentUser={setCurrentUser} currentUser={currentUser} />
       <ProfileSection user={currentUser} />
       <nav>
-        <NavLink to='./'> Answers</NavLink>
+        <NavLink to='./' onClick={fetchAnswers}>
+          Answers
+        </NavLink>
         <NavLink to='./questions'> Questions</NavLink>
       </nav>
       <Outlet context={{ answers, questions, setQuestions }} />
