@@ -1,0 +1,26 @@
+.question-card {
+  display: grid;
+  justify-items: flex-start;
+  text-align: left;
+  padding: 0.5rem 1rem;
+  width: 25rem;
+  display: grid;
+  border: 1px solid #ee1144;
+  background-color: #ffffff2d;
+  gap: 0.5rem;
+}
+.question-card > .answer-form {
+  display: block;
+  width: 100%;
+}
+.question-card input {
+  width: 100%;
+  display: block;
+}
+.question-card h2 {
+  color: white;
+}
+
+.answer-form button {
+  margin: 0.5rem;
+}

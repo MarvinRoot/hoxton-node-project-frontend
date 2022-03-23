@@ -12,6 +12,16 @@ type Props = {
 function Profile({ setCurrentUser, currentUser }: Props) {
   const navigate = useNavigate();
   const [answers, setAnswers] = useState<Question[]>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  useEffect(() => {
+    fetch('http://localhost:4000/questions', {
+      headers: {
+        Authorization: localStorage.token
+      }
+    })
+      .then((resp) => resp.json())
+      .then((data) => setQuestions(data));
+  }, []);
   useEffect(() => {
     if (currentUser === null) navigate('/sign-in');
   }, []);
@@ -36,7 +46,7 @@ function Profile({ setCurrentUser, currentUser }: Props) {
         <NavLink to='./'> Answers</NavLink>
         <NavLink to='./questions'> Questions</NavLink>
       </nav>
-      <Outlet context={answers} />
+      <Outlet context={{ answers, questions, setQuestions }} />
     </div>
   );
 }

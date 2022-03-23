@@ -3,7 +3,7 @@ import { useOutletContext } from 'react-router-dom';
 import AnswerCard from './AnswerCard';
 
 function AnswersList() {
-  const answers = useOutletContext<Question[]>();
+  const { answers } = useOutletContext<{ answers: Question[] }>();
 
   return (
     <div className='answers-list'>
