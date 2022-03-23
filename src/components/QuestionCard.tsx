@@ -17,6 +17,16 @@ function QuestionCard({ question, setQuestions }: Props) {
       .then((resp) => resp.json())
       .then((questions) => setQuestions(questions));
   }
+  function deleteQuestion(questionId: number) {
+    fetch(`http://localhost:4000/questions/${questionId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: localStorage.token
+      }
+    })
+      .then((resp) => resp.json())
+      .then((questions) => setQuestions(questions));
+  }
   return (
     <div className='question-card'>
       <p>{question.asker.username}</p>
@@ -31,7 +41,9 @@ function QuestionCard({ question, setQuestions }: Props) {
       >
         <input placeholder='Type your answer here' name='answer' required />
         <button type='submit'>Submit</button>
-        <button type='button'>Delete</button>
+        <button type='button' onClick={() => deleteQuestion(question.id)}>
+          Delete
+        </button>
       </form>
       <p>{question.createdAt.slice(0, 19)}</p>
     </div>
