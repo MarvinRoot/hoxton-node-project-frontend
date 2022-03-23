@@ -15,7 +15,6 @@ function QuestionCard({ question, setQuestions }: Props) {
       body: JSON.stringify({ answer })
     })
       .then((resp) => resp.json())
-      // update state
       .then((questions) => setQuestions(questions));
   }
   return (

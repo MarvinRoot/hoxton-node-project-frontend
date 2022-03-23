@@ -57,7 +57,11 @@ function App() {
         <Route
           path='/users/:username/'
           element={
-            <User setCurrentUser={setCurrentUser} currentUser={currentUser} />
+            <User
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+              setModalMessage={setModalMessage}
+            />
           }
         >
           <Route path='' element={<AnswersList />} />

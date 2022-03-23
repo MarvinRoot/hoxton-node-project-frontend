@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate, useParams } from 'react-router-dom';
 import AnswersList from '../components/AnswersList';
+import AskCard from '../components/AskCard';
 import Header from '../components/Header';
 import ProfileSection from '../components/ProfileSection';
 type Props = {
   setCurrentUser: React.Dispatch<React.SetStateAction<User | null>>;
   currentUser: User | null;
+  setModalMessage: React.Dispatch<React.SetStateAction<string>>;
 };
 
-function User({ setCurrentUser, currentUser }: Props) {
+function User({ setCurrentUser, currentUser, setModalMessage }: Props) {
   const navigate = useNavigate();
   const params = useParams();
   const [answers, setAnswers] = useState<Question[]>([]);
@@ -46,12 +48,12 @@ function User({ setCurrentUser, currentUser }: Props) {
     return (
       <div className='main'>
         <Header setCurrentUser={setCurrentUser} currentUser={currentUser} />
-        {/* @ts-ignore */}
         <ProfileSection user={user} />
+        <AskCard currentUser={currentUser} setModalMessage={setModalMessage} />
         <nav>
           <NavLink to='./'> Answers</NavLink>
         </nav>
-        <Outlet context={answers} />
+        <Outlet context={{ answers }} />
       </div>
     );
 }
