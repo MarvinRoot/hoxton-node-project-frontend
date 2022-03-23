@@ -1,0 +1,19 @@
+.user-link {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 1rem;
+  text-decoration: none;
+  color: unset;
+  background-color: aliceblue;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.user-link img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.user-link h4 {
+  align-self: center;
+}

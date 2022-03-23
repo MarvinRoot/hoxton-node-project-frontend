@@ -28,7 +28,7 @@ function User({ setCurrentUser, currentUser }: Props) {
       });
   }, []);
   if (user && currentUser && user.id === currentUser.id) {
-    navigate('/profile');
+    navigate('/profile/');
   }
   if (error) {
     return (

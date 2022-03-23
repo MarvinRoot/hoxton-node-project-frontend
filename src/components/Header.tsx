@@ -42,6 +42,11 @@ function Header({ setCurrentUser, currentUser }: Props) {
         <nav className='signed-out-nav'>
           <ul className='icons'>
             <li>
+              <NavLink to='/users'>
+                <span className='material-icons'>group</span>
+              </NavLink>
+            </li>
+            <li>
               <NavLink to='/sign-in'>
                 <span className='material-icons'>login</span>
               </NavLink>

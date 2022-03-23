@@ -1,34 +1,40 @@
 .main-content {
-    display: grid;
-    justify-content: center;
-    align-items: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 form {
-    display: grid;
-    grid-template-columns: auto auto;
-    align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
 }
 
 input {
-    border: none;
-    border-bottom: solid rgb(202, 200, 200) 1px;
-    padding: 15px 0px;
-    width: 270px;
+  border: none;
+  border-bottom: solid rgb(202, 200, 200) 1px;
+  padding: 0.8rem 0.5rem;
+  width: 270px;
 }
-  
+
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 button {
-    background-color: #131619;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+  background-color: #131619;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.3s;
 }
-  
+
 button:hover {
-    background-color: #b11b3e;
+  background-color: #b11b3e;
+}
+
+.users {
+  display: grid;
+  gap: 0.7rem;
 }

@@ -8,7 +8,7 @@ import AnswersList from './components/AnswersList';
 import QuestionsList from './components/QuestionsList';
 import { useEffect, useState } from 'react';
 import Modal from './components/Modal';
-import { Users } from './pages/Users';
+import Users from './pages/Users';
 
 function App() {
   const navigate = useNavigate();
@@ -30,7 +30,7 @@ function App() {
     }
   }
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [modalMessage, setModalMessage] = useState('user');
+  const [modalMessage, setModalMessage] = useState('');
   useEffect(() => {
     validateUser();
   }, []);
@@ -41,7 +41,11 @@ function App() {
         <Route
           path='/sign-in'
           element={
-            <SignIn setCurrentUser={setCurrentUser} currentUser={currentUser} setModalMessage={setModalMessage} />
+            <SignIn
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+              setModalMessage={setModalMessage}
+            />
           }
         />
         <Route
@@ -59,7 +63,7 @@ function App() {
           <Route path='' element={<AnswersList />} />
         </Route>
         <Route
-          path='/profile'
+          path='/profile/'
           element={
             <Profile
               setCurrentUser={setCurrentUser}
@@ -71,8 +75,12 @@ function App() {
           <Route path='questions' element={<QuestionsList />} />
         </Route>
 
-        <Route path='/users' element={<Users setCurrentUser={setCurrentUser}
-              currentUser={currentUser}/>}/>
+        <Route
+          path='/users'
+          element={
+            <Users setCurrentUser={setCurrentUser} currentUser={currentUser} />
+          }
+        />
       </Routes>
       {modalMessage !== '' && (
         <Modal modalMessage={modalMessage} setModalMessage={setModalMessage} />
