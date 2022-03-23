@@ -4,17 +4,54 @@ import { useNavigate } from 'react-router-dom';
 type Props = {
   setCurrentUser: React.Dispatch<React.SetStateAction<User | null>>;
   currentUser: User | null;
+  setModalMessage: React.Dispatch<React.SetStateAction<string>>;
 };
 
-function SignUp({ setCurrentUser, currentUser }: Props) {
+function SignUp({ setCurrentUser, currentUser, setModalMessage }: Props) {
   const navigate = useNavigate();
+  function signUp(
+    email: string,
+    username: string,
+    password: string,
+    image: string
+  ) {
+    fetch('http://localhost:4000/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, username, password, image })
+    })
+      .then((resp) => resp.json())
+      .then((data) => {
+        if (data.error) {
+          setModalMessage(data.error);
+        } else {
+          localStorage.token = data.token;
+          setCurrentUser(data.user);
+        }
+      });
+  }
   if (currentUser) {
     navigate('/profile/');
   }
   return (
     <div className='sign-up'>
       <h1 className='logo'>questions.fm</h1>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          //@ts-ignore
+          const email = e.target.email.value;
+          //@ts-ignore
+          const username = e.target.username.value;
+          //@ts-ignore
+          const password = e.target.password.value;
+          //@ts-ignore
+          const image = e.target.image.value;
+          signUp(email, username, password, image);
+        }}
+      >
         <div className='container'>
           <h1>SIGN UP!</h1>
 

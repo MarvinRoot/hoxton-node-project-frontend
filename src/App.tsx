@@ -51,7 +51,11 @@ function App() {
         <Route
           path='/sign-up'
           element={
-            <SignUp setCurrentUser={setCurrentUser} currentUser={currentUser} />
+            <SignUp
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+              setModalMessage={setModalMessage}
+            />
           }
         />
         <Route
