@@ -34,9 +34,8 @@ function Users({ setCurrentUser, currentUser }: Props) {
             type='text'
             name='search'
             placeholder='Search users'
-            onChange={debounce((e) => {
+            onChange={debounce((e: any) => {
               e.preventDefault();
-              //@ts-ignore
               fetch(`http://localhost:4000/users?search=${e.target.value}`)
                 .then((resp) => resp.json())
                 .then((users) => setUsers(users));
