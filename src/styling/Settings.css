@@ -1,0 +1,26 @@
+.settings {
+    color: white;
+    display: grid; 
+    justify-items: center;
+    align-items: center;
+    grid-gap: 2rem;
+}
+
+form {
+    display: grid;
+    justify-items: flex-end;
+    grid-gap: 2rem;
+}
+
+button {
+    background-color: #ee1144;
+}
+button:hover{
+    background-color: #b11b3e;
+}
+
+img {
+    width: 200px;
+    border-radius: 50%;
+    justify-self: end;
+}

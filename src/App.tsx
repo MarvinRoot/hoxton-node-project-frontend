@@ -9,6 +9,7 @@ import QuestionsList from './components/QuestionsList';
 import { useEffect, useState } from 'react';
 import Modal from './components/Modal';
 import Users from './pages/Users';
+import { Settings } from './pages/Settings';
 
 function App() {
   const navigate = useNavigate();
@@ -89,6 +90,8 @@ function App() {
             <Users setCurrentUser={setCurrentUser} currentUser={currentUser} />
           }
         />
+
+        <Route path='/settings' element={ <Settings setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
       </Routes>
       {modalMessage !== '' && (
         <Modal modalMessage={modalMessage} setModalMessage={setModalMessage} />
