@@ -38,3 +38,6 @@ button:hover {
   display: grid;
   gap: 0.7rem;
 }
+.users a {
+  width: 20rem;
+}

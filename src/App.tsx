@@ -12,7 +12,6 @@ import Users from './pages/Users';
 import { Settings } from './pages/Settings';
 
 function App() {
-  const navigate = useNavigate();
   function validateUser() {
     if (localStorage.token) {
       fetch('http://localhost:4000/validate', {
@@ -91,7 +90,15 @@ function App() {
           }
         />
 
-        <Route path='/settings' element={ <Settings setCurrentUser={setCurrentUser} currentUser={currentUser} />} />
+        <Route
+          path='/settings'
+          element={
+            <Settings
+              setCurrentUser={setCurrentUser}
+              currentUser={currentUser}
+            />
+          }
+        />
       </Routes>
       {modalMessage !== '' && (
         <Modal modalMessage={modalMessage} setModalMessage={setModalMessage} />

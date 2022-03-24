@@ -29,9 +29,12 @@ function User({ setCurrentUser, currentUser, setModalMessage }: Props) {
         else setUser(data);
       });
   }, []);
-  if (user && currentUser && user.id === currentUser.id) {
-    navigate('/profile/');
-  }
+  useEffect(() => {
+    if (user && currentUser && user.id === currentUser.id) {
+      navigate('/profile/');
+    }
+  }, [currentUser, user]);
+
   if (error) {
     return (
       <div className='main'>

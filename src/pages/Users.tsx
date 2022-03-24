@@ -8,6 +8,14 @@ type Props = {
   currentUser: User | null;
 };
 
+function debounce(func: Function, ms: number) {
+  let timeoutId: number;
+  return (...args: any[]) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(func, ms, ...args);
+  };
+}
+
 function Users({ setCurrentUser, currentUser }: Props) {
   const [users, setUsers] = useState<User[]>([]);
 
@@ -21,16 +29,19 @@ function Users({ setCurrentUser, currentUser }: Props) {
     <div className='main'>
       <Header setCurrentUser={setCurrentUser} currentUser={currentUser} />
       <div className='main-content'>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            //@ts-ignore
-            fetch(`http://localhost:4000/users?search=${e.target.search.value}`)
-              .then((resp) => resp.json())
-              .then((users) => setUsers(users));
-          }}
-        >
-          <input type='text' name='search' placeholder='Search users' />
+        <form onSubmit={(e) => e.preventDefault()}>
+          <input
+            type='text'
+            name='search'
+            placeholder='Search users'
+            onChange={debounce((e) => {
+              e.preventDefault();
+              //@ts-ignore
+              fetch(`http://localhost:4000/users?search=${e.target.value}`)
+                .then((resp) => resp.json())
+                .then((users) => setUsers(users));
+            }, 500)}
+          />
           <button type='submit'>
             <svg
               xmlns='http://www.w3.org/2000/svg'

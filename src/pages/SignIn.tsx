@@ -1,5 +1,6 @@
 import '../styling/SignInAndSignUp.css';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 type Props = {
   setCurrentUser: React.Dispatch<React.SetStateAction<User | null>>;
@@ -27,9 +28,12 @@ function SignIn({ setCurrentUser, currentUser, setModalMessage }: Props) {
         }
       });
   }
-  if (currentUser) {
-    navigate('/profile/');
-  }
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/profile/');
+    }
+  }, [currentUser]);
+
   return (
     <div className='sign-in'>
       <h1 className='logo'>questions.fm</h1>
