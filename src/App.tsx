@@ -96,6 +96,7 @@ function App() {
             <Settings
               setCurrentUser={setCurrentUser}
               currentUser={currentUser}
+              setModalMessage={setModalMessage}
             />
           }
         />
